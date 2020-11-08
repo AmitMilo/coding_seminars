@@ -24,10 +24,10 @@ class Dog:
         """
         Another behaviour of the dog. Now returning a value.
         Notice we could replace it with a member and initialize it the constructor.
-        We can even do better with the property decorator.
+        We can even do better with the property decorator (we will see later).
         """
         if self.legs & 1:
-            return "Blue"  # Odd dogs are Democrats
+            return "Blue"
         return "Red"
 
 
