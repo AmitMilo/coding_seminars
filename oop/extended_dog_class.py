@@ -42,13 +42,14 @@ class Dog:
 
         return Dog(new_name, new_legs)
 
-    def __radd__(self, other):
+    def __radd__(self, dog_name):
         """
         Same as above, but defines behaviour for other + self.
-        Notice: when using customized classes, __add__ is preferred by the interpreter over __radd__.
+        Notice: when using customized classes, __add__ is preceded by the interpreter over __radd__.
         Thus: Foo() + Goo() invokes Foo().__add__(Goo())
         """
-        return self + other # Same as calling self.__add__(other)
+
+        return self + other   # Same as calling self.__add__(other)
 
 
 if __name__ == '__main__':

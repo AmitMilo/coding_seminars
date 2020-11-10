@@ -24,7 +24,6 @@ class Ball(metaclass=ABCMeta):
         """
         pass
 
-
     def describe_and_say_hi(self):
         """
         We still may call abstract method.
@@ -34,17 +33,11 @@ class Ball(metaclass=ABCMeta):
 
 
 class SoccerBall(Ball):
-    def __init__(self, size):
-        super().__init__(size)
-
     def describe(self):
         print(f"I'm a soccer ball. My size is {self.size}. My location is {self.x}")
 
 
 class BasketBall(Ball):
-    def __init__(self, size):
-        super().__init__(size)
-
     def describe(self):
         print(f"I'm a basketball ball, my size is {self.size}. My location is {self.x}.")
 
