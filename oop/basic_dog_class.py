@@ -19,6 +19,7 @@ class Dog:
         This method defines dog behaviour of barking
         """
         print(f"Woof! My name is {self.name}.")
+        print(self.__private_data)
 
     def favorite_color(self):
         """
@@ -38,4 +39,4 @@ if __name__ == '__main__':
     print(my_dog.favorite_color())
 
     # print(my_dog._semi_private)
-    # print(my_dog.__private_data)
+    print(my_dog.__private_data)

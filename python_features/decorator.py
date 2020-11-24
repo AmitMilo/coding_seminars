@@ -5,6 +5,7 @@ def assert_no_none(func):
     :param func: This the original function we wrap.
     :return: A wrapping method, which validates there aren't any Nones in the arguments.
     """
+
     def wrapper(*args, **kwargs):
         """
         This is the wrapping method to replace the original one.
@@ -21,6 +22,7 @@ def assert_no_none(func):
         assert all(kwargs_are_not_none)
 
         return func(*args, **kwargs)
+
     return wrapper
 
 
@@ -28,19 +30,19 @@ def assert_no_none(func):
 def foo(x, y, z):
     print(x + y + z)
 
+
 def goo(x):
     print(x)
 
+
 goo = assert_no_none(goo)
 
-
 if __name__ == '__main__':
-    foo(1, 2, z=3)
+    # foo(1, 2, z=3)
     # foo(None, 2, z=3)
     # foo(1, 2, z=None)
 
     # goo(1)
     # goo(x=1)
-    # goo(None)
+    goo(None)
     # goo(x=None)
-

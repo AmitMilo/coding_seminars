@@ -1,3 +1,6 @@
+import time
+
+
 class Point:
     def __init__(self, x, y):
         self.x = x
@@ -6,17 +9,17 @@ class Point:
 
 class Foo:
     def __init__(self):
-        self.__secret = 5
-        self.__big_val = None
-        self.__x = 3
-        self.__y = 7
+        self._secret = 5
+        self._big_val = None
+        self._x = 3
+        self._y = 7
 
     @property
     def secret(self):
         """
         In this case, we allow anyone to read the property.
         """
-        return self.__secret
+        return self._secret
 
     @secret.setter
     def secret(self, value):
@@ -25,7 +28,7 @@ class Foo:
         We allow only positive values.
         """
         if value > 0:
-            self.__secret = value
+            self._secret = value
         else:
             print("Please insert positive value.")
 
@@ -41,13 +44,13 @@ class Foo:
         Here we have a member (the big value shouldn't be calculated more than once).
         However, this calculation is long and we want to avoid it if possible (lazy calculation).
         """
-        if not self.__big_val:
+        if not self._big_val:
             val = 0
-            for i in range(1000):
+            for i in range(20000000):
                 val += i
 
-            self.__big_val = val
-        return self.__big_val
+            self._big_val = val
+        return self._big_val
 
     @property
     def point(self):
@@ -56,21 +59,34 @@ class Foo:
         That way, we can give the property a name different from the member name and use our own implementation to
         store the data.
         """
-        return Point(self.__x, self.__y)
+        return Point(self._x, self._y)
 
     @point.setter
     def point(self, point: Point):
-        self.__x = point.x
-        self.__y = point.y
+        self._x = point.x
+        self._y = point.y
 
 
 if __name__ == '__main__':
     foo = Foo()
-    print(foo.secret)
-    foo.secret = -5
-    foo.secret = 100
-    print(foo.secret)
+    # print(foo.secret)
+    # #foo.secret = -5
+    # foo.secret = 100
+    # print(foo.secret)
 
-    print(type(foo.point))
 
-    print(foo.big_val)
+    foo.big_val = 3
+    # print(type(foo.point))
+    # #
+    # print(foo._big_val)
+    #
+    # start = time.time()
+    # print(foo.big_val)
+    #
+    # print(f"Duration: {time.time() - start}")
+    # print(foo._big_val)
+    #
+    # start = time.time()
+    # print(foo.big_val)
+    #
+    # print(f"Duration: {time.time() - start}")

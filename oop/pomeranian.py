@@ -7,7 +7,7 @@ class Pomeranian(Dog):
         print("Pomeranian was created.", end="\n\n")
 
     def bark(self):
-        super().bark()
+        #super().bark()
         print("I'm costly.")
 
 
