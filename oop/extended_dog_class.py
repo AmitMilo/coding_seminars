@@ -48,7 +48,7 @@ class Dog:
         Notice: when using customized classes, __add__ is preceded by the interpreter over __radd__.
         Thus: Foo() + Goo() invokes Foo().__add__(Goo())
         """
-
+        other = Dog(dog_name)
         return self + other   # Same as calling self.__add__(other)
 
 
@@ -57,9 +57,12 @@ if __name__ == '__main__':
     second_dog = Dog("Bolt", 4)
     third_dog = Dog("Spicy", 3)
 
-    print(first_dog, end="\n\n")
-    print(first_dog == second_dog)
-    print(second_dog == third_dog, end="\n\n")
+    # print(first_dog, end="\n\n")
+    # print(first_dog == second_dog)
+    # print(second_dog == third_dog, end="\n\n")
 
     new_dog = first_dog + third_dog
     print(new_dog)
+
+    new_from_string = "Humy" + second_dog
+    print(new_from_string)

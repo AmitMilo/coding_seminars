@@ -56,8 +56,9 @@ if __name__ == '__main__':
 
     my_collection = MyCollection(data, locations)
 
-    for element in my_collection:
-        print(element)
+    # for element in my_collection:
+    #     print(element)
 
-    if 3 in my_collection:
+    if 5 in my_collection:
         print("Found it!")
+
